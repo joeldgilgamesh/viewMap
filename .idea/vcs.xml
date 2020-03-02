@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Country" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Kotlin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/MovieApp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/MySJD" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lohce-bb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/position-android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/position_android" vcs="Git" />
+  </component>
+</project>
