@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "204330975127",
+    "firebase_url": "https://yamoov-fc9e9.firebaseio.com",
+
+    "project_id": "yamoov-fc9e9",
+    "storage_bucket": "yamoov-fc9e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204330975127:android:05c34ee86942bb336a8ed2",
+        "android_client_info": {
+          "package_name": "com.tbg.yamoov"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204330975127-kkghucv49nrf645a611am5ft0t7jg8rg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx5fo-VIkfEGQS599j0nNqgdaycwZRVcM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204330975127-kkghucv49nrf645a611am5ft0t7jg8rg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
