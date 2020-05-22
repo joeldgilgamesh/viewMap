@@ -1,6 +1,7 @@
 package com.tbg.yamoov;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -43,6 +44,7 @@ import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
 import com.nightonke.boommenu.BoomButtons.BoomButton;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.OnBoomListener;
@@ -234,7 +236,14 @@ public class MainActivity extends AppCompatActivity implements
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Anecdotes", "Retrouvez des anecdotes quotidiennes"));
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Actualités", "Retrouvez votre actualité quotidienne"));
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Réservations", "Liste de vos réservations"));
-        bmb.addBuilder(BuilderManager.getHamButtonBuilder("Profil", "Votre Profil"));
+        bmb.addBuilder(BuilderManager.getHamButtonBuilder("Profil", "Votre Profil").listener(
+                new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivity(new Intent(MainActivity.this, ProfilActivity.class));
+                    }
+                }
+        ));
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Sauvegardes", "Vos lieux enregistrés"));
 
 
