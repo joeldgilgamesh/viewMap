@@ -94,6 +94,18 @@
             android:hint=" Date Of birth "
             android:inputType="date" />
 
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:textColorHint="@color/fullwhite"
+            android:elevation="5dp"
+            android:drawableRight="@drawable/ic_place_black_24dp"
+            android:background="@drawable/btn"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:hint=" localisation " />
+
         <Button
             android:layout_width="280dp"
             android:layout_height="45dp"
@@ -105,7 +117,6 @@
             android:elevation="5dp"
             android:onClick="gotoNext"
             android:background="@drawable/joinbtn"/>
-
 
 
     </LinearLayout>
