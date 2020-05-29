@@ -1,13 +1,14 @@
-<?xml version = "1.0" encoding = "utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/lightwhite"
     android:padding="10dp"
-    tools:context=".ProfilActivity">
+    android:background="@color/lightwhite"
+    tools:context=".RegisterActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,16 +16,16 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:onClick="gotoNext"
+            android:onClick="LognIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_back_black_24dp"/>
         <TextView
-            android:id="@+id/LogInbtn"
+
             android:onClick="LognIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Dconnexion"
+            android:text="Log in"
             android:gravity="end"
             android:textColor="@color/blackcolor"
             android:textSize="15dp"/>
@@ -47,6 +48,7 @@
             android:textSize="25dp"
             android:textStyle="bold" />
         <EditText
+            android:id="@+id/nomUser"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint=" Your Name"
@@ -58,6 +60,7 @@
             android:background="@drawable/btn"
             />
         <EditText
+            android:id="@+id/emailUser"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:hint=" Email "
@@ -66,12 +69,21 @@
             android:inputType="textEmailAddress"
             android:textColorHint="@color/fullwhite"
             android:elevation="5dp"
-            android:background="@drawable/btn"
-            />
+            android:background="@drawable/btn"/>
 
         <EditText
-
-            android:id="@+id/editText"
+            android:id="@+id/passUser"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="Password"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:inputType="textPassword"
+            android:background="@drawable/btn"/>
+        <EditText
+            android:id="@+id/phoneUser"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:textColorHint="@color/fullwhite"
@@ -83,7 +95,7 @@
             android:inputType="phone" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/datebUser"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:textColorHint="@color/fullwhite"
@@ -97,15 +109,21 @@
         <Button
             android:layout_width="280dp"
             android:layout_height="45dp"
-            android:id="@+id/joinus"
+            android:id="@+id/create"
             android:text="Create"
             android:textColor="@color/whitecolor"
             android:textAllCaps="false"
             android:layout_marginTop="25dp"
             android:elevation="5dp"
-            android:onClick="gotoNext"
             android:background="@drawable/joinbtn"/>
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_marginTop="30dp"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
 
 
     </LinearLayout>

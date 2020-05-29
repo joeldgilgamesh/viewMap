@@ -1,35 +1,34 @@
 {
   "project_info": {
-    "project_number": "204330975127",
-    "firebase_url": "https://yamoov-fc9e9.firebaseio.com",
-
-    "project_id": "yamoov-fc9e9",
-    "storage_bucket": "yamoov-fc9e9.appspot.com"
+    "project_number": "712595181220",
+    "firebase_url": "https://yamoov-786af.firebaseio.com",
+    "project_id": "yamoov-786af",
+    "storage_bucket": "yamoov-786af.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:204330975127:android:05c34ee86942bb336a8ed2",
+        "mobilesdk_app_id": "1:712595181220:android:baff9efff38d1129a86031",
         "android_client_info": {
           "package_name": "com.tbg.yamoov"
         }
       },
       "oauth_client": [
         {
-          "client_id": "204330975127-kkghucv49nrf645a611am5ft0t7jg8rg.apps.googleusercontent.com",
+          "client_id": "712595181220-kjh9hr1ni784hih8nut5fo04g6k7bgbc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDx5fo-VIkfEGQS599j0nNqgdaycwZRVcM"
+          "current_key": "AIzaSyCBTAD7Hzt2xIqW_0QRbVl5zvTCV68heaw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "204330975127-kkghucv49nrf645a611am5ft0t7jg8rg.apps.googleusercontent.com",
+              "client_id": "712595181220-kjh9hr1ni784hih8nut5fo04g6k7bgbc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

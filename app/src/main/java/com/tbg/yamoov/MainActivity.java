@@ -246,7 +246,6 @@ public class MainActivity extends AppCompatActivity implements
         ));
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Sauvegardes", "Vos lieux enregistrés"));
 
-
     }
 
     public void newStyle(String style) {
