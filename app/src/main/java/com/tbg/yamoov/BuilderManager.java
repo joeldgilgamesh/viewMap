@@ -9,7 +9,7 @@ class BuilderManager {
             R.drawable.ic_perm_device_information_black_24dp,
             R.drawable.ic_insert_invitation_black_24dp,
             R.drawable.ic_person_outline_black_24dp,
-            R.drawable.ic_save_black_24dp
+            R.drawable.ic_save_black_24dp,
     };
 
     private static int imageResourceIndex = 0;

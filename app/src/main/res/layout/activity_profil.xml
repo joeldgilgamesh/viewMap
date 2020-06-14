@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
-            android:text="Add Your  Position"
+            android:text="ceate your profil"
             android:textColor="@color/blackcolor"
             android:textSize="25dp"
             android:textStyle="bold" />
@@ -50,7 +50,7 @@
             android:id="@+id/latitude"
             android:layout_width="280dp"
             android:layout_height="45dp"
-            android:hint="Latitude"
+            android:hint="last_name"
             android:layout_marginTop="35dp"
             android:paddingLeft="15dp"
             android:inputType="text"
@@ -62,7 +62,7 @@
             android:id="@+id/longitude"
             android:layout_width="280dp"
             android:layout_height="45dp"
-            android:hint="Longitude"
+            android:hint="first_name"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
             android:inputType="text"
@@ -81,7 +81,7 @@
             android:background="@drawable/btn"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:hint="Country Name"
+            android:hint="date_and_place_of_birth"
             android:inputType="text"/>
 
         <EditText
@@ -93,11 +93,11 @@
             android:background="@drawable/btn"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:hint="Locality"
+            android:hint="Email"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/adress"
+            android:id="@+id/password"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:textColorHint="@color/fullwhite"
@@ -105,25 +105,38 @@
             android:background="@drawable/btn"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:hint="Adresse" />
+            android:hint="password" />
+
+
+        <EditText
+            android:id="@+id/adress"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn"
+            android:drawableRight="@drawable/ic_place_black_24dp"
+            android:elevation="5dp"
+            android:hint="localisation"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite" />
+
         <Button
             android:id="@+id/button3"
             android:layout_width="100dp"
             android:layout_height="45dp"
-            android:paddingTop="10dp"
-            android:drawableTop="@drawable/ic_place_black_24dp"
-            android:textColor="@color/whitecolor"
-            android:textAllCaps="false"
             android:layout_marginTop="25dp"
+            android:background="@drawable/joinbtn"
+            android:drawableTop="@drawable/ic_place_black_24dp"
             android:elevation="5dp"
-            android:background="@drawable/joinbtn" />
-
+            android:paddingTop="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/whitecolor" />
 
         <Button
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:id="@+id/joinus"
-            android:text="Update Profil"
+            android:text="create_Profil"
             android:textColor="@color/whitecolor"
             android:textAllCaps="false"
             android:layout_marginTop="25dp"
