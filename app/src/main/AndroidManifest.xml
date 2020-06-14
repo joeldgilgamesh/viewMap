@@ -15,27 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".LoginActivity">
-=======
         <activity android:name=".ActualiteActivity" />
-        <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".ProfilActivity" />
         <activity android:name=".AnecdoteActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/CustomTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
->>>>>>> a27faca07226c3e9ec0a2b7beb397435dad2e178
-
-        </activity>
-<<<<<<< HEAD
-        <activity android:name=".ProfilActivity" />
-        <activity android:name=".AnecdoteActivity" />
-        <activity android:name="About_usActivity"/>
+        <activity android:name=".About_usActivity" />
 
         <activity
             android:name=".MainActivity"
@@ -46,8 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-=======
->>>>>>> a27faca07226c3e9ec0a2b7beb397435dad2e178
     </application>
 
 </manifest>

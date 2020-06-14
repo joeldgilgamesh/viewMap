@@ -1,4 +1,6 @@
 package com.tbg.yamoov;
 
-public class About_usActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class About_usActivity extends AppCompatActivity {
 }

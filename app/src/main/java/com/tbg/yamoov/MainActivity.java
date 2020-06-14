@@ -1,7 +1,6 @@
 package com.tbg.yamoov;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -27,6 +26,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.android.core.permissions.PermissionsListener;
 import com.mapbox.android.core.permissions.PermissionsManager;
+import com.mapbox.api.directions.v5.models.DirectionsResponse;
+import com.mapbox.api.directions.v5.models.DirectionsRoute;
+import com.mapbox.geojson.Feature;
+import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
@@ -42,6 +45,12 @@ import com.mapbox.mapboxsdk.maps.Style;
 import com.mapbox.mapboxsdk.maps.UiSettings;
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
+import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
+import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
+import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
+import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
+import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
+import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
 import com.nightonke.boommenu.BoomButtons.BoomButton;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
@@ -54,28 +63,6 @@ import com.tbg.yamoov.api.APIClient;
 import com.tbg.yamoov.api.ApiInterface;
 import com.tbg.yamoov.model.Nominatim;
 
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.Point;
-import com.mapbox.mapboxsdk.geometry.LatLng;
-import com.mapbox.mapboxsdk.style.layers.SymbolLayer;
-import com.mapbox.mapboxsdk.style.sources.GeoJsonSource;
-import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
-import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
-import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
-
-
-import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
-import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
-import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
-import com.mapbox.api.directions.v5.models.DirectionsResponse;
-import com.mapbox.api.directions.v5.models.DirectionsRoute;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import android.util.Log;
-
-import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,6 +71,10 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
 
 public class MainActivity extends AppCompatActivity implements
         OnMapReadyCallback, PermissionsListener, MapboxMap.OnMapClickListener, LocationListener {
@@ -193,15 +184,14 @@ public class MainActivity extends AppCompatActivity implements
         });
 
 
-
         assert bmb != null;
         bmb.setButtonEnum(ButtonEnum.Ham);
-        bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_5);
-        bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_5);
+        bmb.setPiecePlaceEnum(PiecePlaceEnum.HAM_6);
+        bmb.setButtonPlaceEnum(ButtonPlaceEnum.HAM_6);
         bmb.setOnBoomListener(new OnBoomListener() {
             @Override
             public void onClicked(int index, BoomButton boomButton) {
-                if(index == 0) {
+                if (index == 0) {
                     Intent intent = new Intent(MainActivity.this, AnecdoteActivity.class);
                     startActivity(intent);
                 }
@@ -252,6 +242,14 @@ public class MainActivity extends AppCompatActivity implements
                 }
         ));
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Sauvegardes", "Vos lieux enregistrés"));
+        bmb.addBuilder(BuilderManager.getHamButtonBuilder("About", "A Propos de l'application").listener(
+                new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivity(new Intent(MainActivity.this, About_usActivity.class));
+                    }
+                }
+        ));
 
     }
 
