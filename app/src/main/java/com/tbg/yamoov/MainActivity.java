@@ -234,7 +234,14 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Anecdotes", "Retrouvez des anecdotes quotidiennes"));
-        bmb.addBuilder(BuilderManager.getHamButtonBuilder("Actualités", "Retrouvez votre actualité quotidienne"));
+        bmb.addBuilder(BuilderManager.getHamButtonBuilder("Actualités", "Retrouvez votre actualité quotidienne").listener(
+                new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivity(new Intent(MainActivity.this, ActualiteActivity.class));
+                    }
+                }
+        ));
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Réservations", "Liste de vos réservations"));
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("Profil", "Votre Profil").listener(
                 new OnBMClickListener() {
