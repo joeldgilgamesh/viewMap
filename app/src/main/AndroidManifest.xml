@@ -5,6 +5,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--External storage permission-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <dist:module dist:instant="true" />
 
@@ -15,9 +18,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActualiteActivity" />
+        <activity android:name=".StoreActualiteActivity"></activity>
+        <activity
+            android:name=".ActualiteActivity"
+            android:label="our_company_profile"></activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".ProfilActivity" />
         <activity android:name=".AnecdoteActivity" />
         <activity

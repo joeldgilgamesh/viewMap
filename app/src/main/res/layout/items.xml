@@ -25,13 +25,14 @@
                 android:id="@+id/image"
                 android:layout_width="167dp"
                 android:layout_height="match_parent"
+                android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name"
-                android:src="@mipmap/ic_launcher" />
+                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/text_title"
-                android:layout_width="201dp"
-                android:layout_height="53dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="23dp"
@@ -42,8 +43,8 @@
 
             <TextView
                 android:id="@+id/text_subtitle"
-                android:layout_width="204dp"
-                android:layout_height="97dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/text_title"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="23dp"
