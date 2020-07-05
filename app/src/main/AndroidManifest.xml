@@ -5,9 +5,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--External storage permission-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- External storage permission -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <dist:module dist:instant="true" />
 
@@ -18,22 +17,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".StoreActualiteActivity"></activity>
+        <activity android:name=".SauvegardeActivity"
+            android:label="Sauvegarde"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme"
+            ></activity>
+        <activity android:name=".StoreActualiteActivity" />
         <activity
             android:name=".ActualiteActivity"
-            android:label="our_company_profile"></activity>
+            android:label="Actualités"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme"></activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
-=======
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".ActualiteActivity" />
-        <activity android:name=".LoginActivity"></activity>
->>>>>>> c10e31f04c10a44c06483357bbb6fc36d167c921
         <activity android:name=".ProfilActivity" />
         <activity android:name=".AnecdoteActivity" />
         <activity android:name=".About_usActivity" />
-
         <activity
             android:name=".MainActivity"
             android:theme="@style/CustomTheme">

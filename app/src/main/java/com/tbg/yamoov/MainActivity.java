@@ -241,7 +241,14 @@ public class MainActivity extends AppCompatActivity implements
                     }
                 }
         ));
-        bmb.addBuilder(BuilderManager.getHamButtonBuilder("Sauvegardes", "Vos lieux enregistrés"));
+        bmb.addBuilder(BuilderManager.getHamButtonBuilder("Sauvegardes", "Vos lieux enregistrés").listener(
+                new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        startActivity(new Intent(MainActivity.this, SauvegardeActivity.class));
+                    }
+                }
+        ));
         bmb.addBuilder(BuilderManager.getHamButtonBuilder("About", "A Propos de l'application").listener(
                 new OnBMClickListener() {
                     @Override

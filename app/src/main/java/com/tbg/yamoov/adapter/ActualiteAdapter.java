@@ -41,6 +41,7 @@ public class ActualiteAdapter extends FirestoreRecyclerAdapter<CardModel, Actual
         return new ViewHolder(view);
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         //ImageView imageView;
         TextView tvTitle;

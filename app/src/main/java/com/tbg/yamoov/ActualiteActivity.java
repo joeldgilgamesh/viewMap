@@ -3,12 +3,18 @@ package com.tbg.yamoov;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -41,24 +47,19 @@ public class ActualiteActivity extends AppCompatActivity {
     //Adapter
     private ActualitesAdaptater mActualitesAdaptater;
     private ArrayList<Actualite> mActualiteList;
+    ActualitesAdaptater mActualitesAdaptat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actualite);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //mHeaderView = (TextView) findViewById(R.id.missionHeader);
-        //mActualiteListView = (ListView) findViewById(R.id.list_cards);
-
-
-       // db = FirebaseFirestore.getInstance();
-        //Set up the ArrayList
         mActualiteList = new ArrayList<Actualite>();
-        //set the Adapter
-       // mActualitesAdaptater = new ActualitesAdaptater(this, mActualiteList);
-
-        //mActualiteListView.setAdapter(mActualitesAdaptater);
+        mActualitesAdaptat  = new ActualitesAdaptater(ActualiteActivity.this,mActualiteList);
 
 
         FirebaseFirestore.getInstance().collection("Actualites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -71,7 +72,6 @@ public class ActualiteActivity extends AppCompatActivity {
                         mActualiteList.add(miss);
                     }
                     ListView mMissionsListView = (ListView) findViewById(R.id.list_cards);
-                    ActualitesAdaptater mActualitesAdaptat = new ActualitesAdaptater(ActualiteActivity.this,mActualiteList);
                     mMissionsListView.setAdapter(mActualitesAdaptat);
                 } else {
                     Log.d("MissionActivity", "Error getting documents: ", task.getException());
@@ -84,6 +84,36 @@ public class ActualiteActivity extends AppCompatActivity {
         //mActualitesAdaptater.addAll(mActualiteListView);
     }
 
+    /*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search,menu);
+        MenuItem menuItem = menu.findItem(R.id.search_view);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mActualitesAdaptat.getFilter().filter(newText);
+                return true;
+            }
+        });
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.search_view){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+*/
 
 
 }
