@@ -9,8 +9,8 @@ public class CardModel {
     private String titleId;
     private String subtitleId;
 
-    public CardModel(int imageId, String titleId, String subtitleId) {
-        this.imageId = imageId;
+    public CardModel( String titleId, String subtitleId) {
+       // this.imageId = imageId;
         this.titleId = titleId;
         this.subtitleId = subtitleId;
     }

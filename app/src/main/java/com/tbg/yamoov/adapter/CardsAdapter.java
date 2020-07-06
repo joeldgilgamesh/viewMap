@@ -37,7 +37,7 @@ public class CardsAdapter extends ArrayAdapter<CardModel> {
 
         CardModel model = getItem(position);
 
-        holder.imageView.setImageResource(model.getImageId());
+       // holder.imageView.setImageResource(model.getImageId());
         holder.tvTitle.setText(model.getTitle());
         holder.tvSubtitle.setText(model.getSubtitle());
 
@@ -45,12 +45,12 @@ public class CardsAdapter extends ArrayAdapter<CardModel> {
     }
 
     static class ViewHolder {
-        ImageView imageView;
+        //ImageView imageView;
         TextView tvTitle;
         TextView tvSubtitle;
 
         ViewHolder(View view) {
-            imageView = (ImageView) view.findViewById(R.id.image);
+            //imageView = (ImageView) view.findViewById(R.id.image);
             tvTitle = (TextView) view.findViewById(R.id.text_title);
             tvSubtitle = (TextView) view.findViewById(R.id.text_subtitle);
         }
