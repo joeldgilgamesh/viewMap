@@ -17,17 +17,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SauvegardeActivity"
+        <activity android:name=".ListeSauvegardeActivity"></activity>
+        <activity
+            android:name=".SauvegardeActivity"
             android:label="Sauvegarde"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme"
-            ></activity>
+            android:theme="@style/AppTheme" />
         <activity android:name=".StoreActualiteActivity" />
         <activity
             android:name=".ActualiteActivity"
             android:label="Actualités"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ProfilActivity" />
