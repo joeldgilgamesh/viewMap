@@ -42,15 +42,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
-            android:text="ceate your profil"
+            android:text="create your profil"
             android:textColor="@color/blackcolor"
             android:textSize="25dp"
             android:textStyle="bold" />
         <EditText
-            android:id="@+id/latitude"
+            android:id="@+id/nom"
             android:layout_width="280dp"
             android:layout_height="45dp"
-            android:hint="last_name"
+            android:hint="nom"
             android:layout_marginTop="35dp"
             android:paddingLeft="15dp"
             android:inputType="text"
@@ -59,10 +59,10 @@
             android:background="@drawable/btn"
             />
         <EditText
-            android:id="@+id/longitude"
+            android:id="@+id/email"
             android:layout_width="280dp"
             android:layout_height="45dp"
-            android:hint="first_name"
+            android:hint="email"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
             android:inputType="text"
@@ -72,8 +72,7 @@
             />
 
         <EditText
-
-            android:id="@+id/country"
+            android:id="@+id/pass"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:textColorHint="@color/fullwhite"
@@ -81,11 +80,11 @@
             android:background="@drawable/btn"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:hint="date_and_place_of_birth"
+            android:hint="mot de passe"
             android:inputType="text"/>
 
         <EditText
-            android:id="@+id/locality"
+            android:id="@+id/phone"
             android:layout_width="280dp"
             android:layout_height="45dp"
             android:textColorHint="@color/fullwhite"
@@ -93,7 +92,7 @@
             android:background="@drawable/btn"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
-            android:hint="Email"
+            android:hint="téléphone"
             android:inputType="text" />
 
         <EditText

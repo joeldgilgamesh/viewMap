@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Continuation;
@@ -26,8 +28,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.tbg.yamoov.adapter.GalleryAdapter;
@@ -44,7 +50,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class SauvegardeActivity extends AppCompatActivity {
 
-    private Button btn;
+    private Button btn,btnIm;
     int PICK_IMAGE_MULTIPLE = 1;
     String imageEncoded;
     List<String> imagesEncodedList;
@@ -52,8 +58,18 @@ public class SauvegardeActivity extends AppCompatActivity {
     private GalleryAdapter galleryAdapter;
     String Storage_Path = "Sauvegarde_Image/";
     // Creating ImageView.
-    EditText titreAc, descriptionAc ;
+    EditText titreSv, descriptionSv ;
 
+
+    private static final int PICK_IMAGE = 1;
+    Button chooserBtn, uploaderBtn;
+    TextView alert;
+    private Uri ImageUri;
+    ArrayList ImageList = new ArrayList();
+    private int upload_count = 0;
+    private ProgressDialog progressDialog;
+    ArrayList urlStrings;
+    ArrayList mArrayUri = new ArrayList();
     StorageReference storageReference;
 
 
@@ -65,24 +81,118 @@ public class SauvegardeActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btn = findViewById(R.id.ButtonChooseImage);
+        btnIm = findViewById(R.id.ButtonUploadImage);
+
         gvGallery = (GridView)findViewById(R.id.gv);
-        titreAc = (EditText)findViewById(R.id.titre);
-        descriptionAc = (EditText)findViewById(R.id.description);
+        titreSv = (EditText)findViewById(R.id.titre);
+        descriptionSv = (EditText)findViewById(R.id.description);
+
+
+        progressDialog = new ProgressDialog(SauvegardeActivity.this);
+        progressDialog.setMessage("Uploading Images please Wait.........!!!!!!");
+
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent,"Select Picture"), PICK_IMAGE_MULTIPLE);
+                startActivityForResult(intent, PICK_IMAGE);
+
+            }
+        });
+        btnIm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                urlStrings = new ArrayList<>();
+                progressDialog.show();
+
+                StorageReference ImageFolder = FirebaseStorage.getInstance().getReference().child("ImageSauvegarde");
+
+                for (upload_count = 0; upload_count < mArrayUri.size(); upload_count++) {
+
+                    Uri IndividualImage = (Uri) mArrayUri.get(upload_count);
+                    final StorageReference ImageName = ImageFolder.child("Images" + IndividualImage.getLastPathSegment());
+
+                    ImageName.putFile(IndividualImage).addOnSuccessListener(
+                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    ImageName.getDownloadUrl().addOnSuccessListener(
+                                            new OnSuccessListener<Uri>() {
+                                                @Override
+                                                public void onSuccess(Uri uri) {
+                                                    urlStrings.add(String.valueOf(uri));
+
+
+
+                                                    if (urlStrings.size() == mArrayUri.size()){
+                                                        storeLink(urlStrings);
+                                                    }
+
+                                                }
+                                            }
+                                    );
+                                }
+                            }
+                    );
+
+
+                }
+
+
+
             }
         });
 
 
     }
 
+
+    private void storeLink(ArrayList<String> urlStrings) {
+
+       // HashMap<String, String> hashMap = new HashMap<>();
+        Map<String, Object> sauvegarde = new HashMap<>();
+
+
+        String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        String titreSauvegarde = titreSv.getText().toString().trim();
+        String descriptionSauvegarde = descriptionSv.getText().toString().trim();
+
+        // Hiding the progressDialog after done uploading.
+
+        sauvegarde.put("titre", titreSauvegarde);
+        sauvegarde.put("description", descriptionSauvegarde);
+        sauvegarde.put("date", currentDate);
+        for (int i = 0; i <urlStrings.size() ; i++) {
+            sauvegarde.put("image"+i, urlStrings.get(i));
+        }
+
+        FirebaseFirestore.getInstance().collection("Sauvegarde")
+                .add(sauvegarde)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        Toast.makeText(SauvegardeActivity.this, "Successfully Uplosded", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(SauvegardeActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        progressDialog.dismiss();
+        //alert.setText("Uploaded Successfully");
+        //uploaderBtn.setVisibility(View.GONE);
+        Toast.makeText(getApplicationContext(), "Uploaded Successfully ", Toast.LENGTH_LONG).show();
+
+        mArrayUri.clear();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -108,7 +218,7 @@ public class SauvegardeActivity extends AppCompatActivity {
                     imageEncoded  = cursor.getString(columnIndex);
                     cursor.close();
 
-                    ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
+
                     mArrayUri.add(mImageUri);
                     galleryAdapter = new GalleryAdapter(getApplicationContext(),mArrayUri);
                     gvGallery.setAdapter(galleryAdapter);
@@ -125,7 +235,7 @@ public class SauvegardeActivity extends AppCompatActivity {
                 } else {
                     if (data.getClipData() != null) {
                         ClipData mClipData = data.getClipData();
-                        ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
+
                         for (int i = 0; i < mClipData.getItemCount(); i++) {
 
                             ClipData.Item item = mClipData.getItemAt(i);
@@ -150,10 +260,11 @@ public class SauvegardeActivity extends AppCompatActivity {
 
 
 
-                           /* Toast.makeText(this, mArrayUri.toString(),
+                           /*Toast.makeText(this, mArrayUri.toString(),
                                     Toast.LENGTH_LONG).show();*/
 
                         }
+
                         Log.v("LOG_TAG", "Selected Images" + mArrayUri.size());
                     }
                 }
@@ -182,5 +293,6 @@ public class SauvegardeActivity extends AppCompatActivity {
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri)) ;
 
     }
+
 
 }

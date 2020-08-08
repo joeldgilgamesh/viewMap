@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements Ivue.LoginVue {
     protected void onStart() {
         super.onStart();
         if(loginPresenteur.loadUser() == true){
-            Intent dsp = new Intent(LoginActivity.this,MainActivity.class);
+            Intent dsp = new Intent(LoginActivity.this,SauvegardeActivity.class);
             startActivity(dsp);
             finish();
             Toast.makeText(LoginActivity.this, "Content de vous revoir", Toast.LENGTH_SHORT).show();
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements Ivue.LoginVue {
     public void success(String message) {
         loginPresenteur.onSetProgressBarVisibility(View.INVISIBLE);
         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
-        Intent dsp = new Intent(LoginActivity.this,MainActivity.class);
+        Intent dsp = new Intent(LoginActivity.this,SauvegardeActivity.class);
         startActivity(dsp);
         finish();
     }
