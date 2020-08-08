@@ -4,10 +4,11 @@ public interface Ipresenteur {
 
     interface RegisterPresenteur{
 
-        void createAccount(String nom, String email, String password, String phone, String date);
+        void createAccount(String nom, String email, String password, String phone);
         void pSuccess(String message);
         void pError(String message);
         void onSetProgressBarVisibility(int visibility);
+        void logOut();
         //
     }
     interface  LoginPresenteur{

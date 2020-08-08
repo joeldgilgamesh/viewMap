@@ -15,8 +15,8 @@ public class RegisterPresenteur implements Ipresenteur.RegisterPresenteur {
     }
 
     @Override
-    public void createAccount(String nom, String email, String password, String phone, String date) {
-        registerImplement.createAccount( nom,  email,  password,  phone, date);
+    public void createAccount(String nom, String email, String password, String phone) {
+        registerImplement.createAccount( nom,  email,  password,  phone);
         //pSuccess("looool");
     }
 
@@ -33,6 +33,10 @@ public class RegisterPresenteur implements Ipresenteur.RegisterPresenteur {
     @Override
     public void onSetProgressBarVisibility(int visibility) {
         registerVue.onSetProgressBarVisibility(visibility);
+    }
+    @Override
+    public void logOut() {
+        registerImplement.logOut();
     }
 
 

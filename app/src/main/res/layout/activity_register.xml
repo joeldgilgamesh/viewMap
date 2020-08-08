@@ -25,7 +25,7 @@
             android:onClick="LognIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log in"
+            android:text="Déconnexion"
             android:gravity="end"
             android:textColor="@color/blackcolor"
             android:textSize="15dp"/>
@@ -80,6 +80,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite"
             android:inputType="textPassword"
             android:background="@drawable/btn"/>
         <EditText
@@ -105,7 +106,17 @@
             android:paddingLeft="15dp"
             android:hint=" Date Of birth "
             android:inputType="date" />
-
+        <Button
+            android:id="@+id/localisation"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/joinbtn"
+            android:drawableTop="@drawable/ic_place_black_24dp"
+            android:elevation="5dp"
+            android:paddingTop="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/whitecolor" />
         <Button
             android:layout_width="280dp"
             android:layout_height="45dp"

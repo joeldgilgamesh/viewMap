@@ -37,7 +37,7 @@ public class RegisterImplement implements Imodel.Iregister {
 
 
     @Override
-    public void createAccount(String nom, String email, String password, String phone, String date) {
+    public void createAccount(String nom, String email, String password, String phone) {
 
         FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(email, password)
@@ -53,7 +53,6 @@ public class RegisterImplement implements Imodel.Iregister {
                             user.put("email", email);
                             user.put("password", password);
                             user.put("phone", phone);
-                            user.put("date", date);
                             user.put("position", "");
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -69,6 +68,12 @@ public class RegisterImplement implements Imodel.Iregister {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void logOut() {
+        FirebaseAuth.getInstance().signOut();
+        registerPresenteur.pSuccess("Déconnexion");
     }
 
 }

@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements
                 new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
-                        startActivity(new Intent(MainActivity.this, ProfilActivity.class));
+                        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
                     }
                 }
         ));
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements
                 new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
-                        startActivity(new Intent(MainActivity.this, SauvegardeActivity.class));
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
                     }
                 }
         ));
