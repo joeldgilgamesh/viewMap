@@ -66,10 +66,7 @@ dependencies {
     implementation 'me.biubiubiu.justifytext:library:1.1'
 
     implementation 'com.github.bumptech.glide:glide:4.8.0'
-<<<<<<< HEAD
-=======
 
->>>>>>> 1ffd1ef23c9c91e070a786189cbe8aea7ddd4540
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
