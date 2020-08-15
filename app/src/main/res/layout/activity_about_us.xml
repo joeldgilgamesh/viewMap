@@ -1,140 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="#fff"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:background="@color/lightwhite"
+    android:padding="10dp"
+    tools:context=".About_usActivity">
 
-    <ScrollView
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="686dp"
+        android:layout_height="212dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="694dp"
+        android:layout_height="93dp"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-48dp"
+        android:background="#2DC533"
+        android:text="Bienvenue dans l'uniervers MOOV votre guide numérique intelligent au Cameroun.Deplacez vous en toute securité et serenité sur l'etendue du territoire national .Ici vous aurez l'opportunité de vous cultivez et de vous informez en temps réel "
+        android:textAlignment="center"
+        android:textStyle="bold|italic" />
+
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/textView16"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="134dp"
+        app:srcCompat="@drawable/ic_settings" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="679dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView16"
+        android:layout_marginBottom="-19dp"
+        android:text="Téléphone"
+        android:textAlignment="center"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="8dp"
+        android:layout_height="4dp"
+        android:layout_alignBottom="@+id/textView18"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="224dp"
+        android:layout_marginEnd="214dp"
+        android:layout_marginBottom="-11dp"
+        android:background="#1EE426"
+        android:orientation="vertical"></LinearLayout>
+
+    <TextView
+        android:id="@+id/textView19"
         android:layout_width="match_parent"
-        android:layout_height="586dp">
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView18"
+        android:layout_marginBottom="-30dp"
+        android:text="(+237)698723415"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView19"
+        android:layout_marginBottom="-30dp"
+        android:text="(+237)680649647"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="20dp">
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView20"
+        android:layout_marginBottom="-30dp"
+        android:text="(+237)655888187"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif-monospace"
-                    android:padding="10dp"
-                    android:text="ABOUT_US"
-                    android:textColor="@android:color/holo_green_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_marginBottom="-30dp"
+        android:text="(+237)695173353"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
-            </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="679dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView5"
+        android:layout_marginBottom="-40dp"
+        android:text="Email"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:src="@drawable/logo" />
+    <LinearLayout
+        android:layout_width="8dp"
+        android:layout_height="4dp"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="224dp"
+        android:layout_marginEnd="214dp"
+        android:layout_marginBottom="-11dp"
+        android:background="#1EE426"
+        android:orientation="vertical"></LinearLayout>
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_marginBottom="-30dp"
+        android:text="moovby237@gmail.com"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_regular"
-                android:padding="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:text=" Bienvenue dans l'univers Moov votre guide numerique intelligent au Cameroun."
-                android:textColor="#111111"
-                android:textSize="14sp"/>
-
-            </FrameLayout>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#111111"
-                android:padding="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:textSize="14sp"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Déplacez vous en toute sérénité et sécurité sur l'entendue du territoire national ."/>
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#111111"
-                android:padding="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:textSize="14sp"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Ici vous aurez l'opportunité de vous cultiver et de vous informer en temps réel ."/>
-
-            <TextView
-                android:id="@+id/item_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingTop="5dp"
-                android:text="contact_us"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="70dp" />
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="675dp"
+        android:layout_height="35dp"
+        android:text="about_us"
+        android:textAlignment="center"
+        android:textColor="#23DF2B"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/ic_email_black_24dp"
-                android:layout_marginTop="30sp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="12dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="0sp"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/roboto_regular"
-                android:padding="10dp"
-                android:text="moovby237@gmail.com"
-                android:textColor="#111111"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-            <EditText
-                android:id="@+id/editText2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textEmailAddress" />
-
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+</RelativeLayout>
