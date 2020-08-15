@@ -122,9 +122,14 @@ public class RegisterActivity extends AppCompatActivity implements Ivue.Register
     }
 
     public void LognIn(View view) {
-        /* Intent ds = new Intent(RegisterActivity.this,LoginActivity.class);
+        Intent ds = new Intent(RegisterActivity.this,LoginActivity.class);
         startActivity(ds);
+        finish();
+       /*  ipresenteur.logOut();
         finish();*/
+    }
+    public void LognOut(View view) {
+
         ipresenteur.logOut();
         finish();
     }
