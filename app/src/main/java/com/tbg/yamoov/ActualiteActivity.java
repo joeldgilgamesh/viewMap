@@ -45,7 +45,6 @@ public class ActualiteActivity extends AppCompatActivity {
     private FirebaseFirestore db;
 
     //Adapter
-    private ActualitesAdaptater mActualitesAdaptater;
     private ArrayList<Actualite> mActualiteList;
     ActualitesAdaptater mActualitesAdaptat;
 
@@ -84,36 +83,6 @@ public class ActualiteActivity extends AppCompatActivity {
         //mActualitesAdaptater.addAll(mActualiteListView);
     }
 
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search,menu);
-        MenuItem menuItem = menu.findItem(R.id.search_view);
-        SearchView searchView = (SearchView) menuItem.getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                mActualitesAdaptat.getFilter().filter(newText);
-                return true;
-            }
-        });
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if(id == R.id.search_view){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-*/
 
 
 }

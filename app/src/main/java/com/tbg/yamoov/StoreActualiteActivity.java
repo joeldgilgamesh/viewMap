@@ -145,12 +145,7 @@ public class StoreActualiteActivity extends AppCompatActivity {
         // Checking whether FilePathUri Is empty or not.
         if (FilePathUri != null) {
 
-            // Setting progressDialog Title.
-
-
-            // Creating second StorageReference.
             StorageReference storageReference2nd = storageReference.child(Storage_Path + System.currentTimeMillis() + "." + GetFileExtension(FilePathUri));
-             ;
 
             Task<Uri> urlTask = storageReference2nd.putFile(FilePathUri).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override

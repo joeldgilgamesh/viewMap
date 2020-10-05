@@ -218,7 +218,7 @@ public class SauvegardeActivity extends AppCompatActivity {
                     imageEncoded  = cursor.getString(columnIndex);
                     cursor.close();
 
-
+/*
                     mArrayUri.add(mImageUri);
                     galleryAdapter = new GalleryAdapter(getApplicationContext(),mArrayUri);
                     gvGallery.setAdapter(galleryAdapter);
@@ -228,7 +228,7 @@ public class SauvegardeActivity extends AppCompatActivity {
                     mlp.setMargins(0, gvGallery.getHorizontalSpacing(), 0, 0);
 
                     Toast.makeText(this, mArrayUri.toString(),
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_LONG).show();*/
                     //UploadImageFileToFirebaseStorage(uri);
 
 
@@ -250,7 +250,7 @@ public class SauvegardeActivity extends AppCompatActivity {
                             imageEncoded  = cursor.getString(columnIndex);
                             imagesEncodedList.add(imageEncoded);
                             cursor.close();
-
+/*
                             galleryAdapter = new GalleryAdapter(getApplicationContext(),mArrayUri);
                             gvGallery.setAdapter(galleryAdapter);
                             gvGallery.setVerticalSpacing(gvGallery.getHorizontalSpacing());
@@ -258,7 +258,7 @@ public class SauvegardeActivity extends AppCompatActivity {
                                     .getLayoutParams();
                             mlp.setMargins(0, gvGallery.getHorizontalSpacing(), 0, 0);
 
-
+*/
 
                            /*Toast.makeText(this, mArrayUri.toString(),
                                     Toast.LENGTH_LONG).show();*/

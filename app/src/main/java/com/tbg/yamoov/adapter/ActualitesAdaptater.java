@@ -3,10 +3,13 @@ package com.tbg.yamoov.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.telecom.Call;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -14,16 +17,21 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
+import com.tbg.yamoov.DetailActualiteActivity;
+import com.tbg.yamoov.MainActivity;
+import com.tbg.yamoov.ProfilActivity;
 import com.tbg.yamoov.R;
 import com.tbg.yamoov.model.Actualite;
 import com.tbg.yamoov.model.CardModel;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -33,9 +41,10 @@ import java.util.List;
 public class ActualitesAdaptater extends ArrayAdapter<Actualite> implements Filterable {
 
     List<Actualite> mActualiteList;
-
+    Context context;
     public ActualitesAdaptater(Context context, List<Actualite> object){
         super(context,0, object);
+        this.context = context;
     }
 
     @Override
@@ -45,8 +54,14 @@ public class ActualitesAdaptater extends ArrayAdapter<Actualite> implements Filt
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+        ViewHolder holder;
+
         if(convertView == null){
             convertView =  ((Activity)getContext()).getLayoutInflater().inflate(R.layout.items,parent,false);
+            holder = new ViewHolder(convertView,position, context);
+            convertView.setTag(holder);
+        }else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
         TextView titleTextView = (TextView) convertView.findViewById(R.id.text_title);
@@ -54,8 +69,11 @@ public class ActualitesAdaptater extends ArrayAdapter<Actualite> implements Filt
         ImageView imageView = (ImageView) convertView.findViewById(R.id.image);
         TextView dateTextView = (TextView) convertView.findViewById(R.id.text_date);
         /*TextView descriptionTextView = (TextView) convertView.findViewById(R.id.mission_description);*/
-
         Actualite actualite = getItem(position);
+        holder.tvTitle = actualite.getTitre();
+        holder.tvSubtitle = actualite.getDescription();
+        holder.date = actualite.getDate();
+        holder.imageView = actualite.getImage();
 
         titleTextView.setText(actualite.getTitre());
         expTextView.setText(actualite.getDescription().toString());
@@ -65,6 +83,31 @@ public class ActualitesAdaptater extends ArrayAdapter<Actualite> implements Filt
         Picasso.get().load(imageUrl).into(imageView);
 
         return convertView;
+
+    }
+    static class ViewHolder {
+        String tvTitle;
+        String tvSubtitle;
+        String date;
+        String imageView;
+
+        ViewHolder(View view, int position,Context context) {
+
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+
+                    Intent intent=new Intent(context, DetailActualiteActivity.class);
+
+                    intent.putExtra("tvTitle", tvTitle);
+                    intent.putExtra("tvSubtitle", tvSubtitle);
+                    intent.putExtra("date", date);
+                    intent.putExtra("image", imageView);
+
+                    context.startActivity(intent);
+                }
+            });
+        }
 
     }
 

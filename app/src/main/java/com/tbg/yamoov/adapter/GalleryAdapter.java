@@ -12,49 +12,16 @@ import com.tbg.yamoov.R;
 
 import java.util.ArrayList;
 
-public class GalleryAdapter extends BaseAdapter {
+public class GalleryAdapter  {
 
-    private Context ctx;
-    private int pos;
-    private LayoutInflater inflater;
-    private ImageView ivGallery;
-    ArrayList<Uri> mArrayUri;
-    public GalleryAdapter(Context ctx, ArrayList<Uri> mArrayUri) {
+   /* public void protect(View view){
+        BackTask bt=new BackTask();
+        if(!filepath.equals(""))
+            bt.execute(filepath);
+        else
+            txtStatus.setText("No PDF file is selected.");
+    }*/
 
-        this.ctx = ctx;
-        this.mArrayUri = mArrayUri;
-    }
-
-    @Override
-    public int getCount() {
-        return mArrayUri.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return mArrayUri.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        pos = position;
-        inflater = (LayoutInflater) ctx
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View itemView = inflater.inflate(R.layout.gv_item, parent, false);
-
-        ivGallery = (ImageView) itemView.findViewById(R.id.ivGallery);
-
-        ivGallery.setImageURI(mArrayUri.get(position));
-
-        return itemView;
-    }
 
 
 }
