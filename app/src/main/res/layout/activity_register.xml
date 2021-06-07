@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/lightwhite"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:onClick="LognIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_black_24dp"/>
+        <TextView
+
+            android:onClick="LognOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Déconnexion"
+            android:gravity="end"
+            android:textColor="@color/blackcolor"
+            android:textSize="15dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:text="Create Your  Profil"
+            android:textColor="@color/blackcolor"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/nomUser"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint=" Your Name"
+            android:layout_marginTop="35dp"
+            android:paddingLeft="15dp"
+            android:inputType="text"
+            android:textColorHint="@color/fullwhite"
+            android:elevation="5dp"
+            android:background="@drawable/btn"
+            />
+        <EditText
+            android:id="@+id/emailUser"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint=" Email "
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/fullwhite"
+            android:elevation="5dp"
+            android:background="@drawable/btn"/>
+
+        <EditText
+            android:id="@+id/passUser"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:hint="Password"
+            android:elevation="5dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:textColorHint="@color/fullwhite"
+            android:inputType="textPassword"
+            android:background="@drawable/btn"/>
+        <EditText
+            android:id="@+id/phoneUser"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:textColorHint="@color/fullwhite"
+            android:elevation="5dp"
+            android:background="@drawable/btn"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:hint=" Phone Number "
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/datebUser"
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:textColorHint="@color/fullwhite"
+            android:elevation="5dp"
+            android:background="@drawable/btn"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:hint=" Date Of birth "
+            android:inputType="date" />
+        <Button
+            android:id="@+id/localisation"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/joinbtn"
+            android:drawableTop="@drawable/ic_place_black_24dp"
+            android:elevation="5dp"
+            android:paddingTop="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/whitecolor" />
+        <Button
+            android:layout_width="280dp"
+            android:layout_height="45dp"
+            android:id="@+id/create"
+            android:text="Create"
+            android:textColor="@color/whitecolor"
+            android:textAllCaps="false"
+            android:layout_marginTop="25dp"
+            android:elevation="5dp"
+            android:background="@drawable/joinbtn"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_marginTop="30dp"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -5,7 +5,7 @@
     <string name="text_ham_button_text_normal">Ham Button Text(Normal)</string>
     <string name="text_ham_button_sub_text_normal">Ham Button Sub Text(Normal)</string>
     <string name="title">Titre</string>
-
+    <string name="image_description">description </string>
     <string name="edit_profile_fragment">Edit Profile</string>
     <string name="view_post_fragment">View Post</string>
     <string name="sign_out_fragment">Sign Out</string>
@@ -33,4 +33,5 @@
 
     <!-- activity names -->
     <string name="profile_activity">Profile Activity</string>
+    <string name="msg_token_fmt">Message token</string>
 </resources>
