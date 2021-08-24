@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/recycler_item_margin_bottom"
+        android:layout_marginLeft="@dimen/recycler_item_margin"
+        android:layout_marginRight="@dimen/recycler_item_margin"
+        android:layout_marginTop="@dimen/recycler_item_margin_top"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/item_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:text="27/10/2019"
+                android:textColor="@android:color/holo_green_dark" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/item_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yaoundé"
+                    android:textColor="#222"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/item_anec"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="6dp"
+                    android:text="Si tu vis à Mendong, Biteng, Damas… bref les quartiers de la zone là, 18h ne doit surtout pas te trouver à la poste, sinon c’est à 22h qu’un taximan qui rentre chez lui aura la gentillesse de te porter, non pas pour l’insignifiant tarif que tu as proposé, mais pour que tu lui tiennes compagnie. Heureusement pour toi qu’il habite ton quartier et qu’il aime les divers. Mais s’ils sont trois dans le taxi avec des têtes bizarres hein, mollah mieux tu waka ta chose, sinon c’est au lac municipal qu’on va te retrouver après le dépouillement …"
+                    android:textColor="#888"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
